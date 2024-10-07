@@ -27,5 +27,4 @@ cases use the test-unit testing framework that is bundled with Ruby.
 ## How to cite
 
 David Flater.  ConsensusMeasurement (Ruby module), version 1.0, 2024.<br>
-URL: https://github.com/usnistgov/ConsensusMeasurement<br>
-doi:(forthcoming)
+doi:[10.18434/mds2-3497](https://doi.org/10.18434/mds2-3497)
