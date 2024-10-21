@@ -76,7 +76,7 @@ module ConsensusMeasurement
   # votes as the threshold
   # quorum               Integer ≥ 1
   # votes_y and votes_n  Integer ≥ 0
-  # threshold            Rational ½ < T ≤ 1
+  # threshold            Rational 1/2 < T ≤ 1
   # Returns :negative_result, :null_result, :accepted, or :rejected.
   def self.question_simple(quorum, votes_y, votes_n, threshold)
     check_pos_integer(quorum, 'quorum')
@@ -113,8 +113,8 @@ module ConsensusMeasurement
   Abstention = present but not voting.
 
   And it identifies two types of quorums:
-  1  A minimum number of members that must be present at the time of voting
-  2  A minimum number of members that must not abstain
+  (1)  A minimum number of members that must be present at the time of voting
+  (2)  A minimum number of members that must not abstain
   With the added condition that you are never quorate if nobody votes.
 
   Quorum type (1) can be specified as a constant or it can be derived as a
@@ -127,7 +127,7 @@ module ConsensusMeasurement
   as parameters.  If the quorum is specified as a proportion of P(1) or P(2),
   the caller must reduce it to the number of members and specify quorum_type
   :num_present or :num_voting as applicable.  For example, if quorum is
-  defined as ⅓ of P, Rational(P,3).ceil should be passed as the value for
+  defined as 1/3 of P, Rational(P,3).ceil should be passed as the value for
   quorum.
 
   The remaining option is quorum type (2) defined as a proportion of P(3).
@@ -143,9 +143,9 @@ module ConsensusMeasurement
   "Measuring social consensus" also identifies four ways of setting the
   threshold for determining consensus.  Let P be the effective population
   size and let V be the number of votes in favor of some choice (0 ≤ V ≤ P):
-  Majority        V > ½P
-  Supermajority   V ≥ TP with ½ < T ≤ 1
-  Near-unanimity  V ≥ P−C with 0 ≤ C < ½P
+  Majority        V > P/2
+  Supermajority   V ≥ TP with 1/2 < T ≤ 1
+  Near-unanimity  V ≥ P−C with 0 ≤ C < P/2
   Unanimity       V = P
 
   All options for determining consensus are supported by the following
@@ -153,7 +153,7 @@ module ConsensusMeasurement
   population      Integer P ≥ 0
   threshold_type  :majority, :supermajority, :near_unanimity, or :unanimity
   threshold       For :near_unanimity, Integer 0 ≤ C < P/2
-                  For :supermajority, Rational ½ < T ≤ 1
+                  For :supermajority, Rational 1/2 < T ≤ 1
                   Optional and ignored for :majority and :unanimity
 
   Various constraints are enforced as feasible given the other data provided
@@ -252,8 +252,9 @@ module ConsensusMeasurement
   #
   # Since N is not a parameter, the burden is partly on the caller to ensure
   # that the number of votes represented in the array votes is no greater
-  # than N times the number voting.  consensus? will throw if any element of
-  # the array exceeds population.  n_of_m checks the upper bound N = M.
+  # than N times the number voting.  consensus? will throw an exception if
+  # any element of the array exceeds population.  n_of_m checks the upper
+  # bound N = M.
   def self.n_of_m(quorum_type, quorum, present, voting, votes, population,
                   threshold_type, threshold=nil)
     check_nn_integer(present, 'present')
