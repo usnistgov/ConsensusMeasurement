@@ -3,7 +3,7 @@
 ## Description
 
 This Ruby module is an example implementation of the decision rules for
-consensus from the paper "Measuring social consensus."  Please refer to the
+consensus from the paper [Measuring social consensus](https://doi.org/10.48550/arXiv.2411.12067).  Please refer to the
 paper and the comments in ConsensusMeasurement.rb for information on its
 usage.  See LICENSE.md for copyright information.
 
@@ -14,7 +14,7 @@ cases use the test-unit testing framework that is bundled with Ruby.
 
 ## Related material
 
-  * David Flater, Measuring social consensus (2024) — DOI forthcoming
+  * David Flater, Measuring social consensus, doi:[10.48550/arXiv.2411.12067](https://doi.org/10.48550/arXiv.2411.12067) (2024)
   * [Software Metrology Project](https://github.com/usnistgov/Metrology)
 
 ## Contact information

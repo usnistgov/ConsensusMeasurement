@@ -1,5 +1,5 @@
 # Example implementation of decision rules for consensus from the paper
-# "Measuring social consensus"
+# Measuring social consensus, doi:10.48550/arXiv.2411.12067
 
 # David Flater
 # National Institute of Standards and Technology, USA
@@ -104,8 +104,8 @@ module ConsensusMeasurement
 =begin
   Notes relevant to all of the methods that follow below
 
-  The paper "Measuring social consensus" identifies four ways of setting the
-  effective population size:
+  The paper Measuring social consensus, doi:10.48550/arXiv.2411.12067,
+  identifies four ways of setting the effective population size:
   P(1)  The nominal size of the voting body
   P(2)  The current size of the voting body with vacant positions excluded
   P(3)  The number of members present at the time of voting
